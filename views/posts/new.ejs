@@ -15,7 +15,7 @@
     <a class="btn btn-default" href="/posts">Back</a>
    </div>
 
-   <form class="post-form form-horizontal" action="/posts" method="post">
+   <form class="post-form form-horizontal" action="/posts" method="post" enctype="multipart/form-data">
     <div class="contentBox">
      <h3 class="contentBoxTop">New Post</h3>
      <fieldset>
@@ -31,6 +31,7 @@
         <textarea class="form-control" id="body" name="body" rows="5"></textarea>
        </div>
       </div>
+      <input type = "file" class="inputFile" id = "UploadFile" name = "UploadFile" multiple>
      </fieldset>
     </div>
     <div class="buttons">
