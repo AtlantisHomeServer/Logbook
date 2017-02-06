@@ -35,7 +35,9 @@
      </div> <!-- col end-->
     </div> <!-- row end -->
    </div> <!-- post-container end -->
-
+   <% for(var i = 0; i < post.fileList.length; i++) { %>
+   <div class="buttons"> <button type="submit" class="btn btn-default"><%= post.fileList[i] %></button></div>
+   <% } %>
   </div> <!-- container end -->
  </body>
 </html>
