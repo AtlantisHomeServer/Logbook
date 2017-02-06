@@ -4,7 +4,17 @@ var express = require("express");
 var router = express.Router();
 var Post  = require("../models/Post");
 var multer = require('multer');
-var upload = multer({dest:'./tmp/'}); // multer 경로 설정, 파일이 업로드 되면 먼저 임시 폴더로 가서 저장됨
+
+var _storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'tmp/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+var upload = multer({storage: _storage}); // multer 경로 설정, 파일이 업로드 되면 먼저 임시 폴더로 가서 저장됨
 
 // Index
 router.get("/", function(req, res){
@@ -23,6 +33,7 @@ router.get("/new", function(req, res){
 
 // create
 router.post("/", upload.array('UploadFile'), function(req, res){
+
   //field name은 form의 input file의 name과 같아야함
   var mode = req.param('mode');
   var title = req.body.title;
