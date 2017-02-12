@@ -87,4 +87,12 @@ router.delete("/:id", function(req, res){
  });
 });
 
+// download
+router.get('/download/:path', function(req, res){
+    // file download
+    var path = req.params.path;
+    res.download('tmp/'+path, path);
+    console.log(path);
+});
+
 module.exports = router;

@@ -36,7 +36,9 @@
     </div> <!-- row end -->
    </div> <!-- post-container end -->
    <% for(var i = 0; i < post.fileList.length; i++) { %>
-   <div class="buttons"> <button type="submit" class="btn btn-default"><%= post.fileList[i] %></button></div>
+   <div class="buttons">
+    <a class="btn btn-default" href="/posts/download/<%= post.fileList[i] %>"><%= post.fileList[i] %></a>
+   </div>
    <% } %>
 
   </div> <!-- container end -->
