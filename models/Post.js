@@ -8,6 +8,7 @@ var postSchema = mongoose.Schema({ // 1
  body:{type:String},
  createdAt:{type:Date, default:Date.now}, // 2
  updatedAt:{type:Date},
+ fileList: {type: [String]},
 },{
  toObject:{virtuals:true} // 4
 });

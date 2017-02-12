@@ -40,10 +40,18 @@ router.post("/", upload.array('UploadFile'), function(req, res){
   var body = req.body.body;
   var upFile = req.files; // 업로드 된 파일을 받아옴
 
- Post.create(req.body, function(err, post){
-  if(err) return res.json(err);
-  res.redirect("/posts");
- });
+  var postData = new Post();
+  postData.title = title;
+  postData.body = body;
+
+  for (var i = 0; i < upFile.length; i++) {
+    postData.fileList[i] = upFile[i].originalname;
+  }
+
+  postData.save(function(err) {
+    if (err) return res.json(err);
+      res.redirect("/posts");
+  });
 });
 
 // show
