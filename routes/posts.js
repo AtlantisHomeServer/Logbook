@@ -48,6 +48,8 @@ router.post("/", upload.array('UploadFile'), function(req, res){
     postData.fileList[i] = upFile[i].originalname;
   }
 
+  
+
   postData.save(function(err) {
     if (err) return res.json(err);
       res.redirect("/posts");
