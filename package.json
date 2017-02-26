@@ -12,8 +12,10 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.16.0",
+    "connect-flash": "^0.1.1",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
+    "express-session": "^1.15.1",
     "mongoose": "^4.7.8",
     "multer": "^1.2.1"
   }

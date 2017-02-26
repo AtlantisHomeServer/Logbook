@@ -5,6 +5,8 @@ var mongoose   = require("mongoose");
 var bodyParser  = require("body-parser");
 var methodOverride = require("method-override");
 var multer  = require('multer');
+var flash     = require("connect-flash"); // 1
+var session    = require("express-session"); // 1
 var app = express();
 
 // test용 나중에 안전한 곳에 옮기기
@@ -26,6 +28,8 @@ app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+app.use(flash()); // 2
+app.use(session({secret:"MySecret"})); // 3
 
 // Routes
 app.use("/", require("./routes/home"));
